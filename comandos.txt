@@ -1,0 +1,44 @@
+python -m venv venv # criar ambiente virtual
+.\venv\Scripts\activate.bat 
+
+
+
+ C:\ibov-ml-XGBoost>python src/simulation_xgb.py --evaluate data/simulations/purchase_2025-05-25.csv
+
+
+
+Claro! Aqui está a **lista completa dos comandos** para executar manualmente **cada módulo** do pipeline `ibov-ml-XGBoost`:
+
+---
+
+Claro! Aqui está a documentação atualizada da **sequência de execução do pipeline refinado**, com todos os comandos, explicações e os scripts atualizados:
+
+---
+
+## 🚀 **Pipeline Completo — Versão Refinada**
+
+| Nº  | Etapa                                               | Comando a Executar                                                                          |
+| --- | --------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| 1️⃣ | **Coleta de dados OHLCV**                           | `python src/fetch_all_ohlcv_salva_todos.py`                                                 |
+| 2️⃣ | **Geração de indicadores técnicos**                 | `python src/features_completo.py`                                                           |
+| 3️⃣ | **Geração de labels (3d, 5d, 10d)**                 | `python src/label_completo.py`                                                              |
+| 4️⃣ | **Merge features + labels**                         | `python src/merge_features_labels.py`                                                       |
+| 5️⃣ | **Treinamento XGBoost com GridSearchCV refinado**   | `python src/model_xgb_grid_refinado.py`                                                     |
+| 6️⃣ | **Inferência com modelos refinados**                | `python src/inference_xgb_refinado.py --threshold 0.5`                                      |
+| 7️⃣ | **Simulação de compras (R\$10.000)**                | `python src/simulation_xgb_refinado.py --capital 10000`                                     |
+| 8️⃣ | **Avaliação da simulação (preço atual de mercado)** | `python src/evaluate_simulation.py --input data/simulations/purchase_2025-06-07_165211.csv` |
+| 🔁  | **Execução completa automatizada (opcional)**       | *(em desenvolvimento: `main.py` ou shell script batch)*                                     |
+
+---
+
+### 📌 Explicações:
+
+* **Etapas 1–4**: Preparam os dados com históricos de preços, indicadores técnicos, geração de labels (targets) e unificação em um único dataset por ativo.
+* **Etapa 5**: Treina um modelo por ativo com validação e otimização de hiperparâmetros.
+* **Etapa 6**: Gera os sinais de compra baseados no threshold de probabilidade (ex: `0.5` = mínimo de 50% de confiança).
+* **Etapa 7**: Simula uma compra distribuída dos ativos recomendados com capital fixo.
+* **Etapa 8**: Compara os resultados da simulação com os preços atuais para calcular rentabilidade.
+
+---
+
+Se quiser, posso gerar esse conteúdo em `.md` ou `.pdf` com formatação pronta. Deseja isso?

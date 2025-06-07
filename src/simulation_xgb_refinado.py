@@ -5,11 +5,9 @@ import argparse
 from datetime import datetime
 from tabulate import tabulate
 from binance.client import Client
+from config import API_KEY as API_KEY
+from config import API_SECRET as API_SECRET
 
-# Configurações da Binance API (substituir por suas chaves ou variáveis de ambiente)
-# Recomenda-se usar variáveis de ambiente para segurança
-API_KEY = os.environ.get('BINANCE_API_KEY', 'UdABeqMnq7OY0qKmNTEg5RbnndIAXrRivBHU1odwOlMoB9rVHfN1SpbxgN1CnFvO')
-API_SECRET = os.environ.get('BINANCE_API_SECRET', 'HhkJCzPKdh9s8RURD4wL0nbkMZxJQYTWGhsnOEB7xBjJxDidueevvYjOwonaCPDv')
 
 # Inicializa o cliente da Binance
 client = Client(API_KEY, API_SECRET)
