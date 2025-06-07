@@ -110,8 +110,7 @@ def run_backtest(
                 # Garantir que temos dados até o dia anterior para predição
                 data_until_yesterday = data.loc[data.index < current_date]
                 if data_until_yesterday.empty:
-        continue
-    continue
+                    continue
 # Usar o último dia disponível para predição
                 latest_data_point = data_until_yesterday.iloc[-1]
 
