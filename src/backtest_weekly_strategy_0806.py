@@ -126,7 +126,7 @@ def run_backtest(
 
                 model_data = all_models.get(symbol)
                 if model_data is None:
-                continue
+                    continue
                 model = model_data["model"]
                 features_names = model_data["features_names"]
 
@@ -166,7 +166,7 @@ def run_backtest(
                                 print(f"    ✅ COMPRA: {quantity_to_buy:.8f} de {symbol} @ {buy_price:,.8f} (Custo: {cost:,.2f})".replace(",", "X").replace(".", ",").replace("X", "."))
                                 available_capital_for_trades = 0 # Aloca capital apenas para um trade por segunda-feira para simplificar
                         else:
-                             print(f"    [AVISO] Dados de preço de abertura não disponíveis para {symbol} em {current_date.strftime('%Y-%m-%d')}. Pulando compra.")
+                            print(f"    [AVISO] Dados de preço de abertura não disponíveis para {symbol} em {current_date.strftime('%Y-%m-%d')}. Pulando compra.")
 
                 except Exception as e:
                     print(f"    [ERRO] Falha ao fazer predição ou simular compra para {symbol}: {e}")
@@ -204,7 +204,7 @@ def run_backtest(
                         # Remover posição
                         del portfolio['positions'][symbol]
                     else:
-                         print(f"    [AVISO] Dados de preço de fechamento não disponíveis para {symbol} em {current_date.strftime('%Y-%m-%d')}. Pulando venda.")
+                        print(f"    [AVISO] Dados de preço de fechamento não disponíveis para {symbol} em {current_date.strftime('%Y-%m-%d')}. Pulando venda.")
 
     # Calcular métricas finais
     final_capital = portfolio['capital']
